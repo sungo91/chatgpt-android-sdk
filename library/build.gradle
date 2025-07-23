@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'com.szj.chatgpt'
+    compileSdk 36
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+
+    // Retrofit 核心库
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    // Retrofit + Gson 转换器
+    api 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // OkHttp 日志拦截器（可选但强烈推荐）
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
+}
